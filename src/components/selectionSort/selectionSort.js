@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Visualizer from "./../Visualizer/Visualizer";
 import randomArrGenerator from "./../../Tools/randomArrGenerator";
 
-function BubbleSort(){
+function SelectionSort(){
     //State
     const [data, setData] = useState([]);
 
@@ -23,31 +23,27 @@ function BubbleSort(){
 
     const sortHandler = async() => {
         let tempArr = [...data];
-        let noSwaps;
+        let min = 0;
         for(let i = 0; i < tempArr.length; i++){
-            noSwaps = true;
-            for(let j = 0; j < tempArr.length-i; j++){
-                if(tempArr[j] > tempArr[j+1]){
-                    swap(tempArr, j, j+1);
-                    noSwaps = false;  
-                    await sleep(1);
-                    setData(tempArr);
+            for(let j = i+1; j < tempArr.length; j++){
+                if(tempArr[j] < tempArr[min]){
+                    min = j;
                 }
             }
-            if(noSwaps){
-                break;
-            }
+            swap(tempArr, min, i);
+            await sleep(148);
+            setData(tempArr);
         }
-
+        setData(tempArr);
     }
 
     return (
         <Visualizer
-            title="Bubble Sort"
+            title="Selection Sort"
             data={data}
             sortHandler={sortHandler}
         />
     )
 }
 
-export default BubbleSort;
+export default SelectionSort;

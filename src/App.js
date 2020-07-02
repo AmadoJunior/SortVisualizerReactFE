@@ -1,11 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import BubbleSort from "./components/bubbleSort/bubbleSort";
+import SelectionSort from "./components/selectionSort/selectionSort";
+import InsertionSort from "./components/insertionSort/insertionSort";
+import QuickSort from "./components/quickSort/quickSort";
 
 function App() {
 
-  const[message, setMessage] = useState("");
+  //State
+  const [message, setMessage] = useState("");
 
+  //Effects
   useEffect(() => {
     fetch("/api/message/")
     .then((res) => {
@@ -21,7 +26,12 @@ function App() {
   return (
     <div className="App">
       <h1>{message}</h1>
-      <BubbleSort></BubbleSort>
+      <div className="container">
+        <BubbleSort/>
+        <SelectionSort/>
+        <InsertionSort/>
+        <QuickSort/>
+      </div>
     </div>
   );
 }
