@@ -14,7 +14,7 @@ function MergeSort(){
     }, [])
 
     //Tools
-    const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+    //const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
     const sortArr = (arr1, arr2) => {
         let i = 0;

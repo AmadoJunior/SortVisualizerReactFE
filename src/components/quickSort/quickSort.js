@@ -42,8 +42,8 @@ function QuickSort(){
     const sortHandler = async (arr, left=0, right=arr.length-1) => {
         if(left < right){
             let pivotIndex = await pivot(arr, left, right);
-            sortHandler(arr, left, pivotIndex-1);
-            sortHandler(arr, pivotIndex+1, right);
+            await sortHandler(arr, left, pivotIndex-1);
+            await sortHandler(arr, pivotIndex+1, right);
         }
         return arr;
     }
