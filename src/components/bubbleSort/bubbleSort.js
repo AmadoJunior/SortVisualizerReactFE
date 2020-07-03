@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import Visualizer from "./../Visualizer/Visualizer";
+import VisualizerP5 from "./../Visualizer/VisualizerP5";
 import randomArrGenerator from "./../../Tools/randomArrGenerator";
 
 function BubbleSort(){
@@ -8,7 +8,7 @@ function BubbleSort(){
 
     //Effects
     useEffect(() => {
-        let tempArr = randomArrGenerator(80, 100);
+        let tempArr = randomArrGenerator(120, 250);
         setData(tempArr);
     }, [])
 
@@ -42,7 +42,7 @@ function BubbleSort(){
     }
 
     return (
-        <Visualizer
+        <VisualizerP5
             title="Bubble Sort"
             data={data}
             sortHandler={sortHandler}

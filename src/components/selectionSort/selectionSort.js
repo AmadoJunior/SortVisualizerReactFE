@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import Visualizer from "./../Visualizer/Visualizer";
+import VisualizerP5 from "./../Visualizer/VisualizerP5";
 import randomArrGenerator from "./../../Tools/randomArrGenerator";
 
 function SelectionSort(){
@@ -8,7 +8,7 @@ function SelectionSort(){
 
     //Effects
     useEffect(() => {
-        let tempArr = randomArrGenerator(80, 100);
+        let tempArr = randomArrGenerator(120, 250);
         setData(tempArr);
     }, [])
 
@@ -26,19 +26,19 @@ function SelectionSort(){
         let min = 0;
         for(let i = 0; i < tempArr.length; i++){
             for(let j = i+1; j < tempArr.length; j++){
-                if(tempArr[j] < tempArr[min]){
+                if(tempArr[j] <= tempArr[min]){
                     min = j;
                 }
             }
             swap(tempArr, min, i);
-            await sleep(148);
+            await sleep(180);
             setData(tempArr);
         }
         setData(tempArr);
     }
 
     return (
-        <Visualizer
+        <VisualizerP5
             title="Selection Sort"
             data={data}
             sortHandler={sortHandler}
