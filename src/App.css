@@ -12,6 +12,7 @@ h1{
   flex-direction: column;
   background-color: rgb(241, 241, 241);
   color: rgba(4, 7, 12, 0.815);
+  min-width: 850px;
 }
 .head{
   background-color: rgb(21, 179, 81);
