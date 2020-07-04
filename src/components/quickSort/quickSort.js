@@ -1,11 +1,19 @@
 import React, {useState, useEffect} from "react";
 import VisualizerP5 from "./../Visualizer/VisualizerP5";
+import MainContainer from "./../MainContainer/MainContainer";
 import randomArrGenerator from "../../Tools/randomArrGenerator";
+import implementation from "./../../Assets/quick.png";
 
 function QuickSort(){
     //State
     const [data, setData] = useState([]);
-    let tempArr = [...data];
+    let tempData = [...data];
+    const [complexity, setComplexity] = useState({
+        best: "O(N*log*N)",
+        average: "O(N*log*N)",
+        worst: "O(N^2)",
+        space: "O(log*N)"
+    });
 
     //Effects
     useEffect(() => {
@@ -49,11 +57,15 @@ function QuickSort(){
     }
 
     return (
-        <VisualizerP5
-            title="Quick Sort"
-            data={data}
-            sortHandler={() => sortHandler(tempArr)}
-        />
+        <MainContainer
+        title="Quick Sort"
+        implementation={implementation}
+        complexity={complexity}
+        sortHandler={() => sortHandler(tempData)}>
+            <VisualizerP5
+                data={data}
+            />
+       </MainContainer>
     )
 }
 

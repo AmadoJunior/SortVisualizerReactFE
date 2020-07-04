@@ -1,22 +1,7 @@
 .container{
-    border: 1px #000000 solid;
+    border: 5px solid rgb(224, 224, 224);
     width: 500px;
-    padding: 5px;
     margin: 10px;
-}
-.visualizerContainer{
-    border: 1px black solid;
-    background-color: black;
-    display:flex;
-    justify-content: center;
-    align-items:flex-end;
-}
-.item{
-    background-color: white;
-    margin: 20px 1px 1px 1px;
-    border-radius: 4px;
-    width: 2px;
-    height: 2px;
 }
 .btn{
     margin: 10px 5px 5px 5px;

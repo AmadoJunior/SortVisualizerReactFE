@@ -1,10 +1,18 @@
 import React, {useState, useEffect} from "react";
 import VisualizerP5 from "./../Visualizer/VisualizerP5";
+import MainContainer from "./../MainContainer/MainContainer";
 import randomArrGenerator from "./../../Tools/randomArrGenerator";
+import implementation from "./../../Assets/insertion.png";
 
 function InsertionSort(){
     //State
     const [data, setData] = useState([]);
+    const [complexity, setComplexity] = useState({
+        best: "O(N)",
+        average: "O(N^2)",
+        worst: "O(N^2)",
+        space: "O(1)"
+    });
 
     //Effects
     useEffect(() => {
@@ -31,11 +39,15 @@ function InsertionSort(){
     }
 
     return (
-        <VisualizerP5
-            title="Insertion Sort"
-            data={data}
-            sortHandler={sortHandler}
-        />
+        <MainContainer
+        title="Insertion Sort"
+        implementation={implementation}
+        complexity={complexity}
+        sortHandler={sortHandler}>
+            <VisualizerP5
+                data={data}
+            />
+       </MainContainer>
     )
 }
 

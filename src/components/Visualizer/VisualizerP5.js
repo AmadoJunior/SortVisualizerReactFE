@@ -32,9 +32,7 @@ function VisualizerP5(props){
 
     return (
         <div className={styles.container}>
-            <h1>{props.title}</h1>
             <Sketch setup={setup} draw={draw}></Sketch>
-            <button className={styles.btn} onClick={props.sortHandler}>Sort</button>
         </div>
     )
 }

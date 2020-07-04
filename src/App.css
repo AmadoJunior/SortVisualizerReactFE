@@ -1,7 +1,18 @@
+body, html{
+  padding:0;
+  margin:0;
+}
+h1{
+  margin: 0px;
+  padding: 10px;
+}
 .App {
   text-align: center;
+  background-color: rgb(241, 241, 241);
 }
 .container{
   display:flex;
+  margin: 0px 50px 0px 100px;
+  justify-content: center;
   flex-wrap: wrap;
 }

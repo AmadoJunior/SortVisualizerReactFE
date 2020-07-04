@@ -1,10 +1,18 @@
 import React, {useState, useEffect} from "react";
 import VisualizerP5 from "./../Visualizer/VisualizerP5";
+import MainContainer from "./../MainContainer/MainContainer";
+import implementation from "./../../Assets/selection.png";
 import randomArrGenerator from "./../../Tools/randomArrGenerator";
 
 function SelectionSort(){
     //State
     const [data, setData] = useState([]);
+    const [complexity, setComplexity] = useState({
+        best: "O(N^2)",
+        average: "O(N^2)",
+        worst: "O(N^2)",
+        space: "O(1)"
+    });
 
     //Effects
     useEffect(() => {
@@ -38,11 +46,15 @@ function SelectionSort(){
     }
 
     return (
-        <VisualizerP5
-            title="Selection Sort"
-            data={data}
-            sortHandler={sortHandler}
-        />
+        <MainContainer
+        title="Selection Sort"
+        implementation={implementation}
+        complexity={complexity}
+        sortHandler={sortHandler}>
+            <VisualizerP5
+                data={data}
+            />
+       </MainContainer>
     )
 }
 
