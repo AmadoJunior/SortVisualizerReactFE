@@ -13,6 +13,7 @@ function InsertionSort(){
         worst: "O(N^2)",
         space: "O(1)"
     });
+    const [active, setActive] = useState(false);
 
     //Effects
     useEffect(() => {
@@ -23,6 +24,7 @@ function InsertionSort(){
     const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
     const sortHandler = async() => {
+        setActive(true);
         let tempArr = [...data];
     
         for(let i = 1; i < tempArr.length; i++){
@@ -36,6 +38,7 @@ function InsertionSort(){
             await sleep(3);
             setData(tempArr);
         }
+        setActive(false);
     }
 
     return (
@@ -43,7 +46,8 @@ function InsertionSort(){
         title="Insertion Sort"
         implementation={implementation}
         complexity={complexity}
-        sortHandler={sortHandler}>
+        sortHandler={sortHandler}
+        active={active}>
             <VisualizerP5
                 data={data}
             />

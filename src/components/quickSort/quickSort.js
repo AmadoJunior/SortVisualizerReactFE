@@ -7,6 +7,7 @@ import implementation from "./../../Assets/quick.png";
 function QuickSort(){
     //State
     const [data, setData] = useState([]);
+    const [active, setActive] = useState(false);
     let tempData = [...data];
     const [complexity, setComplexity] = useState({
         best: "O(N*log*N)",
@@ -49,11 +50,14 @@ function QuickSort(){
 
     const sortHandler = async (arr, left=0, right=arr.length-1) => {
         if(left < right){
+            setActive(true)
             let pivotIndex = await pivot(arr, left, right);
             await sortHandler(arr, left, pivotIndex-1);
             await sortHandler(arr, pivotIndex+1, right);
         }
+        setActive(false)
         return arr;
+
     }
 
     return (
@@ -61,7 +65,10 @@ function QuickSort(){
         title="Quick Sort"
         implementation={implementation}
         complexity={complexity}
-        sortHandler={() => sortHandler(tempData)}>
+        sortHandler={() => {
+            sortHandler(tempData);
+            }}
+        active={active}>
             <VisualizerP5
                 data={data}
             />

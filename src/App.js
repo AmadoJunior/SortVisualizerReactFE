@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{message}</h1>
+      <h1 className="head">{message}</h1>
       <div className="container">
         <BubbleSort/>
         <SelectionSort/>

@@ -13,6 +13,7 @@ function BubbleSort(){
         worst: "O(N^2)",
         space: "O(1)"
     });
+    const [active, setActive] = useState(false);
 
     //Effects
     useEffect(() => {
@@ -30,6 +31,7 @@ function BubbleSort(){
     const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
     const sortHandler = async() => {
+        setActive(true);
         let tempArr = [...data];
         let noSwaps;
         for(let i = 0; i < tempArr.length; i++){
@@ -46,7 +48,7 @@ function BubbleSort(){
                 break;
             }
         }
-
+        setActive(false);
     }
 
     return (
@@ -54,7 +56,8 @@ function BubbleSort(){
         title="Bubble Sort"
         implementation={implementation}
         complexity={complexity}
-        sortHandler={sortHandler}>
+        sortHandler={sortHandler}
+        active={active}>
             <VisualizerP5
                 data={data}
             />

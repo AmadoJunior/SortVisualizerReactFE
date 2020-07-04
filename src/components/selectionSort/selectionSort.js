@@ -13,6 +13,7 @@ function SelectionSort(){
         worst: "O(N^2)",
         space: "O(1)"
     });
+    const [active, setActive] = useState(false);
 
     //Effects
     useEffect(() => {
@@ -30,6 +31,7 @@ function SelectionSort(){
     const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
     const sortHandler = async() => {
+        setActive(true);
         let tempArr = [...data];
         let min = 0;
         for(let i = 0; i < tempArr.length; i++){
@@ -43,6 +45,7 @@ function SelectionSort(){
             setData(tempArr);
         }
         setData(tempArr);
+        setActive(false);
     }
 
     return (
@@ -50,7 +53,8 @@ function SelectionSort(){
         title="Selection Sort"
         implementation={implementation}
         complexity={complexity}
-        sortHandler={sortHandler}>
+        sortHandler={sortHandler}
+        active={active}>
             <VisualizerP5
                 data={data}
             />

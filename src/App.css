@@ -8,7 +8,18 @@ h1{
 }
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
   background-color: rgb(241, 241, 241);
+  color: rgba(4, 7, 12, 0.815);
+}
+.head{
+  background-color: rgb(21, 179, 81);
+  width: 400px;
+  margin-top: 20px;
+  box-shadow: 0px 0px 7px  rgb(21, 179, 81);
+  justify-self: center;
+  color: white;
 }
 .container{
   display:flex;
